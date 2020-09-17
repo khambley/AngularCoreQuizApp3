@@ -12,7 +12,7 @@ namespace backend.Controllers
     public class QuestionsController : ControllerBase 
     {
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Models.Question question)
         {
 
         }
