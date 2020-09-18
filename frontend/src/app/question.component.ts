@@ -1,12 +1,17 @@
 import { Component } from '@angular/core'
+import { ApiService } from './api.service'
 
 @Component({
   selector: 'question',
   templateUrl: './question.component.html'
 })
 export class QuestionComponent {
-  question = ""
-  post(question: any) {
-    console.log(question)
+
+  question = {}
+  
+  constructor(private api: ApiService) {}
+
+  post(question) {
+      this.api.postQuestion(question)
   }
 }

@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http'
 @Injectable()
 export class ApiService {
 
-  constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
-  postQuestion(question) {  //Add Url once we get it, have to create endpoint in ASP.NET Core
-    this.http.post('', question).subscribe(res =>{
-      console.log(res)
-    })
-  }
+    postQuestion(question){
+        this.http.post('http://localhost:21031/api/questions', question).subscribe(res => {
+            console.log(res)
+        })
+    }
 }
