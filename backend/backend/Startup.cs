@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,18 +31,21 @@ namespace backend
 				.AllowAnyMethod()
 				.AllowAnyHeader();
 			}));
+			string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+			services.AddDbContext<QuizContext>(options =>
+				options.UseSqlServer(connectionString));
 			
 			services.AddControllers();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider services)
 		{
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
 			}
-			
+			SeedData.SeedDatabase(services.GetRequiredService<QuizContext>());
 			app.UseRouting();
 			app.UseCors("Cors");
 			app.UseAuthorization();
@@ -49,6 +54,7 @@ namespace backend
 			{
 				endpoints.MapControllers();
 			});
+			
 		}
 	}
 }

@@ -7,7 +7,12 @@ namespace backend.Models
 {
 	public class Question
 	{
-		public string Text { get; set; }
+		public int QuestionId { get; set; }
+		public string QuestionText { get; set; }
+		public string CorrectAnswer { get; set; }
+		public string Answer1 { get; set; }
+		public string Answer2 { get; set; }
+		public string Answer3 { get; set; }
 
 	}
 }
