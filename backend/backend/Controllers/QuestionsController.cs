@@ -27,9 +27,10 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]Models.Question question)
+        public void Post([FromBody]Question question)
         {
-            context.Questions.Add(new Question() { QuestionText = "test" });
+            context.Questions.Add(question);
+            context.SaveChanges();
         }
     
     }
