@@ -20,10 +20,7 @@ namespace backend.Controllers
         [HttpGet]
         public IEnumerable<Question> Get()
         {
-            return new Question[] { 
-                new Question() { QuestionText = "Question Text 1" },
-                new Question() { QuestionText = "Question Text 2" }
-            };
+            return context.Questions;
         }
 
         [HttpPost]
