@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { QuestionComponent } from './question.component'
 
 @Component({
-  selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  template: '<question></question><questions></questions>'
 })
-export class AppComponent {
+export class HomeComponent {
+  title = 'My Quiz App';
 }
