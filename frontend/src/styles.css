@@ -11,3 +11,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fullWidth {
   width: 75%;
 }
+
+.clickLink {
+  cursor: pointer;
+}
+.spacer {
+  width: 15px;
+}
