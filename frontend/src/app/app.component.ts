@@ -3,7 +3,7 @@ import { QuestionComponent } from './question.component'
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  template: '<nav></nav><router-outlet></router-outlet>'
 })
 export class AppComponent {
 }
