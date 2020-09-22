@@ -13,18 +13,20 @@ import { fromEventPattern } from 'rxjs';
 import { ApiService } from './api.service';
 import { HomeComponent } from './home.component'
 import { NavComponent } from './nav.component'
+import { QuizComponent } from './quiz.component'
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
-  { path: 'questions', component: QuestionsComponent }
+  { path: 'questions', component: QuestionsComponent },
+  { path: 'quiz', component: QuizComponent }
 ]
   
 
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent
+    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent
   ],
   imports: [
     BrowserModule,
