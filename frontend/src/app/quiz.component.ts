@@ -11,7 +11,7 @@ export class QuizComponent {
 
   quiz = {}
   ngOnInit(){
-
+    this.api.quizSelected.subscribe(quiz => this.quiz = quiz)
   }
 
 }

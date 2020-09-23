@@ -22,7 +22,7 @@ namespace backend.Controllers
 
         // GET: api/Quizzes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Quiz>>> GetQuiz()
+        public async Task<ActionResult<IEnumerable<Quiz>>> GetQuizzes()
         {
             return await _context.Quiz.ToListAsync();
         }

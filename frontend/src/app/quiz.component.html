@@ -12,9 +12,11 @@
     </mat-card-content>
     <mat-card-actions>
       <span>&nbsp;&nbsp;</span> 
-      <button *ngIf="quiz.quizId" (click)="null" mat-flat-button color="primary">EDIT</button>
+      <button *ngIf="quiz.quizId" (click)="api.putQuiz(quiz)" mat-flat-button color="primary">EDIT</button>
       <span>&nbsp;&nbsp;</span> 
-      <button *ngIf="quiz.quizId" (click)="null" mat-flat-button color="primary">NEW</button>
+      <button *ngIf="quiz.quizId" (click)="quiz = {}" mat-flat-button color="primary">NEW</button>
+      <span>&nbsp;&nbsp;</span>
+      <button *ngIf="quiz.quizId" [routerLink]="['/question', 1]" mat-flat-button color="primary">EDIT QUESTIONS</button>
       <button *ngIf="!quiz.quizId" (click)="api.postQuiz(quiz)" mat-flat-button color="primary">ADD</button>
     </mat-card-actions>
   </mat-card>

@@ -40,7 +40,12 @@ namespace backend.Migrations
                     b.Property<string>("QuestionText")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("QuizId")
+                        .HasColumnType("int");
+
                     b.HasKey("QuestionId");
+
+                    b.HasIndex("QuizId");
 
                     b.ToTable("Questions");
                 });
@@ -58,6 +63,15 @@ namespace backend.Migrations
                     b.HasKey("QuizId");
 
                     b.ToTable("Quiz");
+                });
+
+            modelBuilder.Entity("backend.Models.Question", b =>
+                {
+                    b.HasOne("backend.Models.Quiz", "Quiz")
+                        .WithMany("Questions")
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
