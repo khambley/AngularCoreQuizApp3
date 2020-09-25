@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using backend.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,8 +33,15 @@ namespace backend
 				.AllowAnyHeader();
 			}));
 			string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+			string userConnectionString = Configuration["ConnectionStrings:UserConnection"];
+
 			services.AddDbContext<QuizContext>(options =>
 				options.UseSqlServer(connectionString));
+
+			services.AddDbContext<UserDbContext>(options =>
+				options.UseSqlServer(userConnectionString));
+
+			services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
 			
 			services.AddControllers().AddNewtonsoftJson();
 		}
