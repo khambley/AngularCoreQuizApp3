@@ -27,12 +27,8 @@ namespace backend.Controllers
         [HttpGet("{quizId}")]
         public IEnumerable<Question> Get([FromRoute] int quizId)
         {
-            List<Question> questionList = new List<Question>()
-            Question result = context.Questions
-                .Include(q => q.Quiz)
-                .Where(q => q.QuizId == quizId);
-
-            return 
+           
+            return context.Questions.Where(q => q.QuizId == quizId);
         }
 
         [HttpPost]
