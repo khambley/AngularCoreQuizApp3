@@ -15,6 +15,7 @@ namespace backend.Controllers
         public string Password { get; set; }
 
     }
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -37,6 +38,7 @@ namespace backend.Controllers
                 return BadRequest(result.Errors);
 
             await signInManager.SignInAsync(user, isPersistent: false);
+
             //Create and return a JSON web token (JWT)
             var jwt = new JwtSecurityToken();
             return Ok(new JwtSecurityTokenHandler().WriteToken(jwt));

@@ -10,7 +10,7 @@ export class AuthService {
     // save token in the browser
     register(credentials: any){
         return this.http.post<any>(`http://localhost:21031/api/account`, credentials).subscribe(res => {
-           // localStorage.setItem('token', res)
+           localStorage.setItem('token', res)
            console.log(res)
         })
     }
