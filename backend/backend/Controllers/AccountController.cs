@@ -42,15 +42,17 @@ namespace backend.Controllers
 
             await signInManager.SignInAsync(user, isPersistent: false);
 
+            //User Id is embedded in Jwt token itself
             var claims = new Claim[]
             {
-                
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id)
             };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret phrase"));
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
+
             //Create and return a JSON web token (JWT)
-            var jwt = new JwtSecurityToken(signingCredentials: signingCredentials);
+            var jwt = new JwtSecurityToken(signingCredentials: signingCredentials, claims: claims);
             return Ok(new JwtSecurityTokenHandler().WriteToken(jwt));
         }
     }
