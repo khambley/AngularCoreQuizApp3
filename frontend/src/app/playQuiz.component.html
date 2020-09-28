@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Questions List</mat-card-title>
+    </mat-card-header>
+      <mat-card-content>
+        <!-- <mat-list *ngFor="let question of questions">
+          <mat-list-item class="clickLink"> {{question.questionText}} </mat-list-item>
+        </mat-list> -->
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let question of questions; let i = index" [expanded]="step === i" (opened)="setStep(i)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{question.questionText}}
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              {{question.correctAnswer}}
+              <mat-action-row>
+                <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                <button mat-button color="primary" (click)="nextStep()">Next</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+          
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>

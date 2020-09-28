@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatCardModule, MatListModule, MatToolbarModule } from '@angular/material'
+import { MatButtonModule, MatInputModule, MatCardModule, MatListModule, MatToolbarModule, MatExpansionModule } from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'
@@ -20,6 +20,8 @@ import { AuthService} from './auth.service'
 import { AuthInterceptor } from './auth.interceptor'
 import { LoginComponent } from './login.component'
 import { PlayComponent } from './play.component'
+import { PlayQuizComponent } from './playQuiz.component'
+
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -28,14 +30,15 @@ const routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'play', component: PlayComponent }
+  { path: 'play', component: PlayComponent },
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent }
 ]
   
 
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, LoginComponent, PlayComponent
+    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, LoginComponent, PlayComponent, PlayQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ const routes = [
     MatInputModule,
     MatCardModule, 
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS, 
