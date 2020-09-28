@@ -18,12 +18,14 @@ import { QuizzesComponent } from './quizzes.component'
 import { RegisterComponent } from './register.component'
 import { AuthService} from './auth.service'
 import { AuthInterceptor } from './auth.interceptor'
+import { LoginComponent } from './login.component'
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'question/:quizId', component: QuestionComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent }
 ]
   
@@ -31,7 +33,7 @@ const routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent
+    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, LoginComponent
   ],
   imports: [
     BrowserModule,

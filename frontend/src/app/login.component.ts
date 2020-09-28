@@ -3,9 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from './auth.service'
 
 @Component({
-  templateUrl: './register.component.html'
+  templateUrl: './login.component.html'
 })
-export class RegisterComponent {
+export class LoginComponent {
 
     form
 

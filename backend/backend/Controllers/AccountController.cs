@@ -41,7 +41,27 @@ namespace backend.Controllers
                 return BadRequest(result.Errors);
 
             await signInManager.SignInAsync(user, isPersistent: false);
+            return Ok(CreateToken(user));
 
+
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] Credentials creds)
+        {
+            var result = await signInManager.PasswordSignInAsync(creds.Email, creds.Password, false, false);
+
+            if (!result.Succeeded)
+            {
+                BadRequest();
+            }
+
+            var user = await userManager.FindByEmailAsync(creds.Email);
+            return Ok(CreateToken(user));
+        }
+
+        string CreateToken(IdentityUser user)
+        {
             //User Id is embedded in Jwt token itself
             var claims = new Claim[]
             {
@@ -53,7 +73,7 @@ namespace backend.Controllers
 
             //Create and return a JSON web token (JWT)
             var jwt = new JwtSecurityToken(signingCredentials: signingCredentials, claims: claims);
-            return Ok(new JwtSecurityTokenHandler().WriteToken(jwt));
+            return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
     }
 }
