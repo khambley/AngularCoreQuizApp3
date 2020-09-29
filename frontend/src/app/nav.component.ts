@@ -5,7 +5,9 @@ import { AuthService } from './auth.service'
   selector: 'nav',
   template: `
     <mat-toolbar>
-        <button mat-button routerLink="/">Quiz</button>
+        <button mat-button routerLink="/">My Quiz Maker App</button>
+        <button mat-button routerLink="/">Home</button>
+        <button mat-button routerLink="/play">Take Quiz</button>
         <span style="flex: 1 1 auto;"></span>
         <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
         <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Log In</button>
