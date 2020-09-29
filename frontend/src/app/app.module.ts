@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatCardModule, MatListModule, MatToolbarModule, MatExpansionModule } from '@angular/material'
+import { MatButtonModule, MatInputModule, MatCardModule, MatListModule, MatToolbarModule, MatExpansionModule, MatRadioModule, MatDialogModule } from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'
@@ -21,6 +21,7 @@ import { AuthInterceptor } from './auth.interceptor'
 import { LoginComponent } from './login.component'
 import { PlayComponent } from './play.component'
 import { PlayQuizComponent } from './playQuiz.component'
+import { FinishedComponent } from './finished.component'
 
 
 const routes = [
@@ -38,7 +39,9 @@ const routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, LoginComponent, PlayComponent, PlayQuizComponent
+    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, 
+    NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, 
+    LoginComponent, PlayComponent, PlayQuizComponent, FinishedComponent
   ],
   imports: [
     BrowserModule,
@@ -53,13 +56,16 @@ const routes = [
     MatCardModule, 
     MatListModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS, 
     useClass: AuthInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FinishedComponent]
 })
 export class AppModule { }
