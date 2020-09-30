@@ -3,23 +3,26 @@ import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FinishedComponent } from './finished.component'
+import { DomSanitizer } from '@angular/platform-browser'; 
+declare var jQuery: any;
 
 @Component({
   templateUrl: './playQuiz.component.html'
 })
 export class PlayQuizComponent {
 
-    constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {}
+    constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog, sanitizer: DomSanitizer) {}
 
     quizId
     questions
+    
     
  
   ngOnInit(){
     this.quizId = this.route.snapshot.paramMap.get('quizId')
     this.api.getQuestions(this.quizId).subscribe(res => {
       this.questions = res
-
+      
         //first, create Answers list
         this.questions.forEach(q => {
             q.answers = [ q.correctAnswer, q.answer1, q.answer2, q.answer3 ]

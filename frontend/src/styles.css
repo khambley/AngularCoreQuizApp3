@@ -18,3 +18,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
   width: 15px;
 }
+
+.mat-radio-button {
+  font-family: 'Consolas', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.mat-expansion-panel-header-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.7;
+}
+.mat-expansion-panel-header {
+  padding: 20px 24px !important;
+}
