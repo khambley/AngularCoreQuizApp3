@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FinishedComponent } from './finished.component'
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {PageEvent} from '@angular/material';
 
 @Component({
   templateUrl: './playQuiz.component.html'
@@ -15,6 +16,11 @@ export class PlayQuizComponent {
     quizId
     questions
     public Editor = ClassicEditor;
+
+    pagedList = []
+    length = 0
+    pageSize = 1
+    pageIndex = 0
     
  
   ngOnInit(){
@@ -29,7 +35,11 @@ export class PlayQuizComponent {
             // Then, shuffle the answers array
             shuffle(q.answers)
         });
+        this.pagedList = this.questions.slice(0, this.pageSize); 
+        this.length = this.questions.length; 
     })
+    
+    
   }
 
   // for Submit button, tally the correct answers and score the quiz
@@ -43,6 +53,16 @@ export class PlayQuizComponent {
         data: { correct, total: this.questions.length}
       });
       console.log(correct)
+  }
+  OnPageChange(event: PageEvent){
+    let startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+
+    if(endIndex > this.length){
+      endIndex = this.length;
+    }
+    this.pagedList = this.questions.slice(startIndex, endIndex);
+    this.pageIndex = event.pageIndex
   }
   step = 0;
 

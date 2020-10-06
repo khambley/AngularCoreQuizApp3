@@ -37,3 +37,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-expansion-panel > .mat-expansion-panel-header {
    height: auto !important;
 }
+.mat-list-base > .mat-list-item {
+  height: auto !important;
+}

@@ -2,7 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatCardModule, MatListModule, MatToolbarModule, MatExpansionModule, MatRadioModule, MatDialogModule } from '@angular/material'
+import { MatButtonModule, 
+  MatInputModule, 
+  MatCardModule, 
+  MatListModule, 
+  MatToolbarModule, 
+  MatExpansionModule, 
+  MatRadioModule, 
+  MatDialogModule, 
+  MatPaginatorModule } from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'
@@ -61,7 +69,8 @@ const routes = [
     MatExpansionModule,
     MatRadioModule,
     MatDialogModule,
-    CKEditorModule
+    CKEditorModule,
+    MatPaginatorModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS, 
