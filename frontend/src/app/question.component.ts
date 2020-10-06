@@ -1,6 +1,8 @@
 import { Component } from '@angular/core'
 import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 @Component({
   selector: 'question',
@@ -10,6 +12,12 @@ export class QuestionComponent {
 
   question = {}
   quizId
+  public Editor = ClassicEditor;
+  // config: any = {
+  //   toolbar: [[]], 
+  //   autoParagraph: false
+
+  // }
   constructor(private api: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {

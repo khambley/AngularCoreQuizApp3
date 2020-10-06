@@ -8,9 +8,9 @@
         </mat-list> -->
         <mat-accordion>
             <mat-expansion-panel *ngFor="let question of questions; let i = index" [expanded]="step === i" (opened)="setStep(i)">
-              <mat-expansion-panel-header>
+              <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
                 <mat-panel-title> 
-                    {{question.questionText}}
+                    <div [innerHTML]="question.questionText"></div>
                 </mat-panel-title>
                 <mat-panel-description>
                 </mat-panel-description>

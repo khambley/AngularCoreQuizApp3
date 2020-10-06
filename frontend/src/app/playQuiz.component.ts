@@ -3,19 +3,18 @@ import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FinishedComponent } from './finished.component'
-import { DomSanitizer } from '@angular/platform-browser'; 
-declare var jQuery: any;
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   templateUrl: './playQuiz.component.html'
 })
 export class PlayQuizComponent {
 
-    constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog, sanitizer: DomSanitizer) {}
+    constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {}
 
     quizId
     questions
-    
+    public Editor = ClassicEditor;
     
  
   ngOnInit(){

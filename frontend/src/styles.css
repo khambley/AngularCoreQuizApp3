@@ -34,3 +34,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-expansion-panel-header {
   padding: 20px 24px !important;
 }
+.mat-expansion-panel > .mat-expansion-panel-header {
+   height: auto !important;
+}

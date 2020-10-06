@@ -22,6 +22,8 @@ import { LoginComponent } from './login.component'
 import { PlayComponent } from './play.component'
 import { PlayQuizComponent } from './playQuiz.component'
 import { FinishedComponent } from './finished.component'
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 const routes = [
@@ -58,7 +60,8 @@ const routes = [
     MatToolbarModule,
     MatExpansionModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    CKEditorModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS, 
