@@ -3,8 +3,9 @@ import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FinishedComponent } from './finished.component'
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+//import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {PageEvent} from '@angular/material';
+
 
 @Component({
   templateUrl: './playQuiz.component.html'
@@ -15,7 +16,7 @@ export class PlayQuizComponent {
 
     quizId
     questions
-    public Editor = ClassicEditor;
+    //public Editor = ClassicEditor;
 
     pagedList = []
     length = 0
