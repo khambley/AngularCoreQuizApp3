@@ -1,4 +1,4 @@
-<!-- <mat-card>
+<mat-card>
   <mat-card-header>
     <mat-card-title>Questions List</mat-card-title>
   </mat-card-header>
@@ -9,8 +9,4 @@
   </mat-card-content>
   <mat-card-actions>
   </mat-card-actions>
-</mat-card> -->
-
-<ol *ngFor="let question of questions">
-  <li [innerHTML]="question.questionText" class="clickLink" (click)="api.selectQuestion(question)"></li>
-</ol>
+</mat-card>

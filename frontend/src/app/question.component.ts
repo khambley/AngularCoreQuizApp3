@@ -2,7 +2,6 @@ import { Component } from '@angular/core'
 import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 //import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-//import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
 import * as CustomEditor from '../assets/ckeditor.js'
 
 @Component({
@@ -15,13 +14,7 @@ export class QuestionComponent {
   quizId
   //public Editor = ClassicEditor;
   public Editor = CustomEditor;
-  // config: any = {
-  //   plugins: [Code],
-  //   toolbar: {
-  //     items: ['code']
-  //   },
-  //   autoParagraph: false
-  // }
+  
   constructor(private api: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {

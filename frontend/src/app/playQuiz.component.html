@@ -7,7 +7,7 @@
           <span>Question {{pageIndex + 1}}:</span><mat-list-item class="clickLink" [innerHTML]="question.questionText"></mat-list-item>
           <mat-radio-group [(ngModel)]="question.selectedAnswer">    
             <mat-radio-button appearance="outline" class="fullWidth" *ngFor="let answer of question.answers" [value]="answer">
-                {{answer}}
+                <span [innerHTML]="answer"></span>
             </mat-radio-button>
             </mat-radio-group><br /><br />
         <button *ngIf="pageIndex == length - 1" mat-button color="primary" (click)="finish()">Submit Quiz</button>

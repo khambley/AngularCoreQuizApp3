@@ -1,34 +1,34 @@
-<mat-card>
-  <mat-card-title>
-    <span *ngIf="question.questionId">Edit Question</span>
-    <span *ngIf="!question.questionId">New Question</span>
-  </mat-card-title>
-  <mat-card-content>
-    <form>
-      <!-- <mat-form-field class="fullWidth"> -->
-        <!-- <input [(ngModel)]="question.questionText" name="question" matInput placeholder="Enter a question..."> -->
-      <!-- </mat-form-field><br> -->
-      <ckeditor tagName="input" name="question" [editor]="Editor" [(ngModel)]="question.questionText"></ckeditor>
-      <mat-form-field class="fullWidth">
-        <input [(ngModel)]="question.correctAnswer" name="correctAnswer" matInput placeholder="Enter the correct answer..."> 
-      </mat-form-field>
-      <mat-form-field class="fullWidth">
-        <input [(ngModel)]="question.answer1" name="answer1" matInput placeholder="Enter wrong answer 1..."> 
-      </mat-form-field>
-      <mat-form-field class="fullWidth">
-        <input [(ngModel)]="question.answer2" name="answer2" matInput placeholder="Enter wrong answer 2..."> 
-      </mat-form-field>
-      <mat-form-field class="fullWidth">
-        <input [(ngModel)]="question.answer3" name="answer3" matInput placeholder="Enter wrong answer 3..."> 
-      </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <span>&nbsp;&nbsp;</span> 
-    <button *ngIf="question.questionId" (click)="api.putQuestion(question)" mat-flat-button color="primary">EDIT</button>
-    <span>&nbsp;&nbsp;</span> 
-    <button *ngIf="question.questionId" (click)="question = {}" mat-flat-button color="primary">NEW</button>
-    <button *ngIf="!question.questionId" (click)="post(question)" mat-flat-button color="primary">ADD</button>
-  </mat-card-actions>
-</mat-card>
-<questions></questions>
+<div class="row">
+  <div class="col-md-6">
+    <questions></questions>
+  </div>
+  <div class="col-md-5">
+    <mat-card>
+      <mat-card-title>
+        <span *ngIf="question.questionId">Edit Question</span>
+        <span *ngIf="!question.questionId">New Question</span>
+      </mat-card-title>
+      <mat-card-content>
+        <form>
+          <ckeditor tagName="input" name="question" [editor]="Editor" data="Enter a question..."[(ngModel)]="question.questionText"></ckeditor><br />
+          
+          <ckeditor tagName="input" name="correctAnswer" [editor]="Editor" data="Enter the correct answer..." [(ngModel)]="question.correctAnswer"></ckeditor><br />
+          
+          <ckeditor tagName="input" name="answer1" [editor]="Editor" data="Enter wrong answer 1..." [(ngModel)]="question.answer1"></ckeditor><br />
+          
+          <ckeditor tagName="input" name="answer2" [editor]="Editor" data="Enter wrong answer 2..." [(ngModel)]="question.answer2"></ckeditor><br />
+          
+          <ckeditor tagName="input" name="answer3" [editor]="Editor" data="Enter wrong answer 3..." [(ngModel)]="question.answer3"></ckeditor><br >
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <span>&nbsp;&nbsp;</span> 
+        <button *ngIf="question.questionId" (click)="api.putQuestion(question)" mat-flat-button color="primary">EDIT</button>
+        <span>&nbsp;&nbsp;</span> 
+        <button *ngIf="question.questionId" (click)="question = {}" mat-flat-button color="primary">NEW</button>
+        <button *ngIf="!question.questionId" (click)="post(question)" mat-flat-button color="primary">ADD</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
