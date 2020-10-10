@@ -30,7 +30,8 @@ import { LoginComponent } from './login.component'
 import { PlayComponent } from './play.component'
 import { PlayQuizComponent } from './playQuiz.component'
 import { FinishedComponent } from './finished.component'
-//import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 
@@ -69,7 +70,7 @@ const routes = [
     MatExpansionModule,
     MatRadioModule,
     MatDialogModule,
-    //CKEditorModule,
+    CKEditorModule,
     MatPaginatorModule
   ],
   providers: [ApiService, AuthService, {

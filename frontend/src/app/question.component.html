@@ -5,10 +5,10 @@
   </mat-card-title>
   <mat-card-content>
     <form>
-      <mat-form-field class="fullWidth">
-        <input [(ngModel)]="question.questionText" name="question" matInput placeholder="Enter a question...">
-      </mat-form-field><br>
-      <!-- <ckeditor tagName="input" data="Hello, world!" name="question" [editor]="Editor" [(ngModel)]="question.questionText"></ckeditor> -->
+      <!-- <mat-form-field class="fullWidth"> -->
+        <!-- <input [(ngModel)]="question.questionText" name="question" matInput placeholder="Enter a question..."> -->
+      <!-- </mat-form-field><br> -->
+      <ckeditor tagName="input" name="question" [editor]="Editor" [(ngModel)]="question.questionText"></ckeditor>
       <mat-form-field class="fullWidth">
         <input [(ngModel)]="question.correctAnswer" name="correctAnswer" matInput placeholder="Enter the correct answer..."> 
       </mat-form-field>

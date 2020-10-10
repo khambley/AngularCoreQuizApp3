@@ -3,6 +3,7 @@ import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 //import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 //import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import * as CustomEditor from '../assets/ckeditor.js'
 
 @Component({
   selector: 'question',
@@ -12,7 +13,8 @@ export class QuestionComponent {
 
   question = {}
   quizId
-  // public Editor = ClassicEditor;
+  //public Editor = ClassicEditor;
+  public Editor = CustomEditor;
   // config: any = {
   //   plugins: [Code],
   //   toolbar: {
