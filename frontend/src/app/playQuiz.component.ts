@@ -39,8 +39,6 @@ export class PlayQuizComponent {
         this.pagedList = this.questions.slice(0, this.pageSize); 
         this.length = this.questions.length; 
     })
-    
-    
   }
 
   // for Submit button, tally the correct answers and score the quiz

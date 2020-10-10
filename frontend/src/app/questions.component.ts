@@ -10,6 +10,7 @@ export class QuestionsComponent {
 
   question = {}
   questions
+  questionNumber = 1
   
   
   constructor(private api: ApiService, private route: ActivatedRoute) {}
@@ -19,7 +20,7 @@ export class QuestionsComponent {
     
     this.api.getQuestions(quizId).subscribe(res => {
       this.questions = res
-    })
+    });
   }
 
   post(question) {
