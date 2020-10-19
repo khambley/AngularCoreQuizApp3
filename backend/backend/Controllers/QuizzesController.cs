@@ -51,6 +51,18 @@ namespace backend.Controllers
 
             return quiz;
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<QuizAttempt>> GetQuizAttempt(int id)
+        {
+            var quizAttempt = await _context.QuizAttempts.FindAsync(id);
+
+            if (quizAttempt == null)
+            {
+                return NotFound();
+            }
+
+            return quizAttempt;
+        }
 
         // PUT: api/Quizzes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -99,6 +111,23 @@ namespace backend.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetQuiz", new { id = quiz.QuizId }, quiz);
+        }
+        [Authorize]
+        [HttpPost("{id}")]
+        public async Task<ActionResult<QuizAttempt>> PostQuizAttempt(int id, QuizAttempt quizAttempt)
+        {
+            var userId = HttpContext.User.Claims.First().Value;
+
+            quizAttempt.UserId = userId;
+
+            var quiz = await _context.Quiz.FindAsync(id);
+            quizAttempt.QuizId = quiz.QuizId;
+
+            _context.QuizAttempts.Add(quizAttempt);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetQuizAttempt", new { id = quizAttempt.Id }, quizAttempt);
+
         }
 
         // DELETE: api/Quizzes/5

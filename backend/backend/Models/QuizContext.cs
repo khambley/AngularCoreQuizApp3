@@ -14,5 +14,8 @@ namespace backend.Models
 		public DbSet<Question> Questions { get; set; }
 
 		public DbSet<Quiz> Quiz { get; set; }
+
+		public DbSet<QuizAttempt> QuizAttempts { get; set; }
+
 	}
 }
