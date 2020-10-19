@@ -3,7 +3,6 @@ import { ApiService } from './api.service'
 import { ActivatedRoute } from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FinishedComponent } from './finished.component'
-//import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {PageEvent} from '@angular/material';
 
 
@@ -16,7 +15,6 @@ export class PlayQuizComponent {
 
     quizId
     questions
-    //public Editor = ClassicEditor;
 
     pagedList = []
     length = 0
@@ -62,19 +60,6 @@ export class PlayQuizComponent {
     }
     this.pagedList = this.questions.slice(startIndex, endIndex);
     this.pageIndex = event.pageIndex
-  }
-  step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
   }
 
 }
