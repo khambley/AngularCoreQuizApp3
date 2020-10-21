@@ -10,7 +10,7 @@ export class QuizzesComponent {
   quiz = {}
   quizzes
   
-  constructor(private api: ApiService) {}
+  constructor(public api: ApiService) {}
 
   ngOnInit(){
     this.api.getQuizzes().subscribe(res => {

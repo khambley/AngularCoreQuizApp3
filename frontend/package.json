@@ -24,6 +24,7 @@
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-build-classic": "^23.0.0",
     "jquery": "^3.5.1",
+    "lite-server": "^2.5.4",
     "ngx-bootstrap": "^6.1.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",

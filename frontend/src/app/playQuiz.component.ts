@@ -12,7 +12,7 @@ import {PageEvent} from '@angular/material';
 export class PlayQuizComponent {
 
     
-    constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {}
+    constructor(public api: ApiService, public route: ActivatedRoute, public dialog: MatDialog) {}
 
     quizId
     questions

@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Subject } from 'rxjs'
 
-const baseUrl = "http://localhost:21031"
+//const baseUrl = "http://localhost:21031"
+const baseUrl = "http://dev.myquizmaker.com"
+//const baseUrl = "http://localhost:3000"
 
 @Injectable()
 export class ApiService {
 
-    private selectedQuestion = new Subject<any>();
+    public selectedQuestion = new Subject<any>();
     questionSelected = this.selectedQuestion.asObservable();
 
-    private selectedQuiz = new Subject<any>();
+    public selectedQuiz = new Subject<any>();
     quizSelected = this.selectedQuiz.asObservable();
 
-    constructor(private http: HttpClient) {}
+    constructor(public http: HttpClient) {}
 
     getQuestions(quizId){
         return this.http.get(`${baseUrl}/api/questions/${quizId}`)

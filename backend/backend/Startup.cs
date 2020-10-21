@@ -74,11 +74,12 @@ namespace backend
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider services)
 		{
 			app.UseAuthentication();
-			if (env.IsDevelopment())
+			if (env.IsProduction() || env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+				
 			}
-			SeedData.SeedDatabase(services.GetRequiredService<QuizContext>());
+			//SeedData.SeedDatabase(services.GetRequiredService<QuizContext>());
 			app.UseRouting();
 			app.UseCors("Cors");
 			app.UseAuthorization();

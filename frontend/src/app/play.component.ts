@@ -7,7 +7,7 @@ import { ApiService } from './api.service'
 })
 export class PlayComponent {
 
-  constructor(private api: ApiService) {}
+  constructor(public api: ApiService) {}
 
   quizzes
  

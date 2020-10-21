@@ -9,7 +9,7 @@ export class RegisterComponent {
 
     form
 
-    constructor(private auth: AuthService, private fb: FormBuilder) {
+    constructor(public auth: AuthService, public fb: FormBuilder) {
         this.form = fb.group({
             email: ['', Validators.required],
             password: ['', Validators.required]

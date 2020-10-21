@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 
+//const baseUrl = "http://localhost:21031"
+const baseUrl = "http://dev.myquizmaker.com"
+//const baseUrl = "http://localhost:3000"
+
 @Injectable()
 export class AuthService {
 
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(public http: HttpClient, public router: Router) {}
 
     // Add a "getter" property
     get isAuthenticated() {
@@ -15,13 +19,13 @@ export class AuthService {
 
     // save token in the browser
     register(credentials: any){
-        return this.http.post<any>(`http://localhost:21031/api/account`, credentials).subscribe(res => {
+        return this.http.post<any>(`${baseUrl}/api/account`, credentials).subscribe(res => {
             this.authenticate(res)
         })
     }
 
     login(credentials: any){
-        return this.http.post<any>(`http://localhost:21031/api/account/login`, credentials).subscribe(res => {
+        return this.http.post<any>(`${baseUrl}/api/account/login`, credentials).subscribe(res => {
             this.authenticate(res)
         })
     }

@@ -15,7 +15,7 @@ export class QuestionComponent {
   //public Editor = ClassicEditor;
   public Editor = CustomEditor;
   
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(public api: ApiService, public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.quizId = this.route.snapshot.paramMap.get('quizId')

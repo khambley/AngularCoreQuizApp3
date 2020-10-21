@@ -13,7 +13,7 @@ export class QuestionsComponent {
   questionNumber = 1
   
   
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(public api: ApiService, public route: ActivatedRoute) {}
 
   ngOnInit(){
     var quizId = this.route.snapshot.paramMap.get('quizId')

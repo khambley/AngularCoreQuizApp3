@@ -7,7 +7,7 @@ import { ApiService } from './api.service'
 })
 export class QuizComponent {
 
-  constructor(private api: ApiService) {}
+  constructor(public api: ApiService) {}
 
   quiz = {}
   ngOnInit(){
