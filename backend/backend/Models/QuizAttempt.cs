@@ -11,7 +11,10 @@ namespace backend.Models
 		public string UserId { get; set; }
 		public int QuizId { get; set; }
 		public DateTime AttemptDate { get; set; }
-		public int CorrectAnswers { get; set; }
+		public double CorrectAnswers { get; set; }
+		public double TotalQuestions { get; set; }
+		public double Percentage { get; set; }
+
 
 	}
 }

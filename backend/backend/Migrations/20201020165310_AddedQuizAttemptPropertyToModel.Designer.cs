@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Models;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20201020165310_AddedQuizAttemptPropertyToModel")]
+    partial class AddedQuizAttemptPropertyToModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,17 +81,14 @@ namespace backend.Migrations
                     b.Property<DateTime>("AttemptDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("CorrectAnswers")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Percentage")
-                        .HasColumnType("float");
+                    b.Property<int>("CorrectAnswers")
+                        .HasColumnType("int");
 
                     b.Property<int>("QuizId")
                         .HasColumnType("int");
 
-                    b.Property<double>("TotalQuestions")
-                        .HasColumnType("float");
+                    b.Property<int>("TotalQuestions")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");

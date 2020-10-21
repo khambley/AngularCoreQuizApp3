@@ -47,6 +47,11 @@ export class ApiService {
             console.log(res)
         })
     }
+    postQuizAttempt(quizAttempt){
+        this.http.post(`http://localhost:21031/api/quizzes/${quizAttempt.quizId}`, quizAttempt).subscribe(res => {
+            console.log(res)
+        })
+    }
 
     selectQuestion(question){
         this.selectedQuestion.next(question)

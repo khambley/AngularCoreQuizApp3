@@ -11,6 +11,7 @@ import {PageEvent} from '@angular/material';
 })
 export class PlayQuizComponent {
 
+    
     constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) {}
 
     quizId
@@ -20,6 +21,13 @@ export class PlayQuizComponent {
     length = 0
     pageSize = 1
     pageIndex = 0
+    quizAttempt = {
+      quizId: 0,
+      attemptDate: new Date().toDateString(),
+      correctAnswers: 0,
+      totalQuestions: 0
+    }
+
     
  
   ngOnInit(){
@@ -35,7 +43,7 @@ export class PlayQuizComponent {
             shuffle(q.answers)
         });
         this.pagedList = this.questions.slice(0, this.pageSize); 
-        this.length = this.questions.length; 
+        this.length = this.questions.length;
     })
   }
 
@@ -49,7 +57,13 @@ export class PlayQuizComponent {
       const dialogRef = this.dialog.open(FinishedComponent, {
         data: { correct, total: this.questions.length}
       });
-      console.log(correct)
+      //store quiz score
+      this.quizAttempt.quizId = this.quizId
+      this.quizAttempt.attemptDate = new Date().toDateString()
+      this.quizAttempt.correctAnswers = correct
+      this.quizAttempt.totalQuestions = this.questions.length
+      this.api.postQuizAttempt(this.quizAttempt)
+      console.log(this.quizAttempt)
   }
   OnPageChange(event: PageEvent){
     let startIndex = event.pageIndex * event.pageSize;
@@ -60,6 +74,20 @@ export class PlayQuizComponent {
     }
     this.pagedList = this.questions.slice(startIndex, endIndex);
     this.pageIndex = event.pageIndex
+  }
+  post(){
+    console.log(this.quizAttempt)
+    this.quizAttempt.quizId = this.quizId
+    this.quizAttempt.attemptDate = new Date().toDateString()
+    var correct = 0;
+      this.questions.forEach(q => {
+          if (q.correctAnswer == q.selectedAnswer)
+            correct++
+      });
+    this.quizAttempt.correctAnswers = correct
+    this.quizAttempt.totalQuestions = this.questions.length
+    console.log(this.quizAttempt)
+    this.api.postQuizAttempt(this.quizAttempt)
   }
 
 }

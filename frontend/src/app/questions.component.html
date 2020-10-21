@@ -4,7 +4,8 @@
   </mat-card-header>
   <mat-card-content>
     <mat-list *ngFor="let question of questions; let i = index">
-      <span class="font-weight-bold">Question {{questionNumber + i}}:</span><mat-list-item [innerHTML]="question.questionText" class="clickLink" (click)="api.selectQuestion(question)"></mat-list-item>
+      <span class="font-weight-bold">Question {{questionNumber + i}}:</span>
+      <mat-list-item [innerHTML]="question.questionText" class="clickLink" (click)="api.selectQuestion(question)"></mat-list-item>
     </mat-list>
   </mat-card-content>
   <mat-card-actions>

@@ -122,6 +122,12 @@ namespace backend.Controllers
 
             var quiz = await _context.Quiz.FindAsync(id);
             quizAttempt.QuizId = quiz.QuizId;
+            //var correct = quizAttempt.CorrectAnswers;
+            //var total = quizAttempt.TotalQuestions;
+            //double percentage = 3.00 / 4.00;
+            //quizAttempt.Percentage = percentage;
+
+            quizAttempt.Percentage = (quizAttempt.CorrectAnswers / quizAttempt.TotalQuestions) * 100;
 
             _context.QuizAttempts.Add(quizAttempt);
             await _context.SaveChangesAsync();
