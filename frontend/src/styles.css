@@ -18,6 +18,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
   width: 15px;
 }
+.no-padding {
+  padding: 0px;
+}
 
 .mat-radio-button {
   font-family: 'Consolas', sans-serif;

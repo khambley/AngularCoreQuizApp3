@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 
-//const baseUrl = "http://localhost:21031"
-const baseUrl = "http://dev.myquizmaker.com"
+const baseUrl = "http://localhost:21031"
+//const baseUrl = "http://dev.myquizmaker.com"
 //const baseUrl = "http://localhost:3000"
 
 @Injectable()

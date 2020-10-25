@@ -1,0 +1,41 @@
+<div class="container-fluid no-padding">
+  <div class="jumbotron">
+    <h1 class="display-4 text-center">Welcome to My Quiz Maker!</h1>
+    <hr class="my-4">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <!-- <img src="https://via.placeholder.com/250x150?text=250+px+X+150+px" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title"> 1. Register / Login</h5>
+            <p class="card-text">You must register and log in before you can take a quiz.</p>
+            <button [routerLink]="['/register']" class="btn btn-primary">Register</button> or 
+            <button [routerLink]="['/login']" class="btn btn-primary">Login</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <!-- <img src="https://via.placeholder.com/250x150?text=250+px+X+150+px" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title"> 2. Select a Quiz</h5>
+            <p class="card-text">Review list of quizzes and make a selection.</p>
+            <button [routerLink]="['/register']" class="btn btn-success">View Quizzes</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <!-- <img src="https://via.placeholder.com/250x150?text=250+px+X+150+px" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title"> 3. Create a Quiz</h5>
+            <p class="card-text">Create and manage quizzes and questions for others to take.</p>
+            <button [routerLink]="['/quiz']" class="btn btn-info">Manage Quizzes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End container -->
+</div>

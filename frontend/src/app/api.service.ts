@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Subject } from 'rxjs'
 
-//const baseUrl = "http://localhost:21031"
-const baseUrl = "http://dev.myquizmaker.com"
+const baseUrl = "http://localhost:21031"
+//const baseUrl = "http://dev.myquizmaker.com"
 //const baseUrl = "http://localhost:3000"
 
 @Injectable()
@@ -20,9 +20,7 @@ export class ApiService {
     getQuestions(quizId){
         return this.http.get(`${baseUrl}/api/questions/${quizId}`)
     }
-    // getQuestions(){
-    //     return this.http.get('http://localhost:21031/api/questions')
-    // }
+    
     getQuizzes(){
         return this.http.get(`${baseUrl}/api/quizzes`)  
     }
