@@ -1,0 +1,17 @@
+<div>
+  <div class="text-center">
+    
+      <button class="float-right" mat-dialog-close>X</button><br >
+      <div class="row"><h4 style="color: red">
+        {{data.reason}}
+    </h4></div>
+      
+      
+      <p class="font-weight-lighter">
+          Status: {{data.status}}
+      </p>
+      <button [routerLink]="['/register']" class="btn btn-primary">Register</button> or 
+      <button [routerLink]="['/login']" class="btn btn-primary">Login</button>
+      
+  </div>
+</div>

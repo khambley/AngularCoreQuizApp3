@@ -31,7 +31,8 @@ import { PlayComponent } from './play.component'
 import { PlayQuizComponent } from './playQuiz.component'
 import { FinishedComponent } from './finished.component'
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
+import { ErrorDialogComponent } from './error-dialog/errorDialog.component';
+import { ErrorDialogService } from './error-dialog/errorDialog.service';
 
 
 
@@ -53,7 +54,8 @@ const routes = [
   declarations: [
     AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, 
     NavComponent, QuizComponent, QuizzesComponent, RegisterComponent, 
-    LoginComponent, PlayComponent, PlayQuizComponent, FinishedComponent
+    LoginComponent, PlayComponent, PlayQuizComponent, FinishedComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -74,12 +76,12 @@ const routes = [
     CKEditorModule,
     MatPaginatorModule
   ],
-  providers: [ApiService, AuthService, {
+  providers: [ApiService, AuthService, ErrorDialogService, {
     provide: HTTP_INTERCEPTORS, 
     useClass: AuthInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [FinishedComponent]
+  entryComponents: [FinishedComponent, ErrorDialogComponent],
 })
 export class AppModule { }
