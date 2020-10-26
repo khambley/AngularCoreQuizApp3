@@ -44,7 +44,7 @@ export class AuthInterceptor implements HttpInterceptor {
            catchError((error: HttpErrorResponse) => {
                let data = {};
                data = {
-                reason: error && error.error && error.error.reason ? error.error.reason : 'You must be logged in to create a quiz.',
+                reason: error && error.error && error.error.reason ? error.error.reason : 'You must be logged in to create or take a quiz.',
                 status: error.status + " Unauthorized"
             };
             this.errorDialogService.openDialog(data);

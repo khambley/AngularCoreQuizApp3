@@ -1,4 +1,5 @@
-<mat-card>
+<div class="container">
+  <mat-card>
     <mat-card-title>
       <span *ngIf="quiz.quizId">Edit Quiz</span>
       <span *ngIf="!quiz.quizId">New Quiz</span>
@@ -20,3 +21,4 @@
       <button *ngIf="!quiz.quizId" (click)="api.postQuiz(quiz)" mat-flat-button color="primary">ADD</button>
     </mat-card-actions>
   </mat-card>
+</div>
