@@ -54,7 +54,23 @@ namespace backend.Controllers
             await context.SaveChangesAsync();
             return Ok(question);
         }
-    
+
+        // DELETE: api/Questions/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Question>> DeleteQuestion(int id)
+        {
+            var question = await context.Questions.FindAsync(id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            context.Questions.Remove(question);
+            await context.SaveChangesAsync();
+
+            return question;
+        }
+
     }
     
 

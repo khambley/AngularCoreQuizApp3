@@ -9,12 +9,29 @@
         <span *ngIf="!question.questionId">New Question</span>
       </mat-card-title>
       <mat-card-content>
-        <form>
-          <ckeditor tagName="input" name="question" [editor]="Editor" data="Enter a question..."[(ngModel)]="question.questionText"></ckeditor><br />
+        <form name="myForm">
+          <span class="display" [ngClass]="{'invalid': questionVar.valid === false}">
+            Question text is required.
+          </span>
+          <ckeditor 
+            required 
+            #questionVar="ngModel" 
+            tagName="input" 
+            name="question" 
+            [editor]="Editor" 
+            data="Enter a question (required)..."
+            [(ngModel)]="question.questionText">
+          </ckeditor><br />
+
+          <span class="display" [ngClass]="{'invalid': correctAnswerVar.valid === false }">
+            Correct answer is required.
+          </span>
+          <ckeditor required #correctAnswerVar="ngModel" tagName="input" name="correctAnswer" [editor]="Editor" data="Enter a correct answer (required)..." [(ngModel)]="question.correctAnswer"></ckeditor><br />
           
-          <ckeditor tagName="input" name="correctAnswer" [editor]="Editor" data="Enter the correct answer..." [(ngModel)]="question.correctAnswer"></ckeditor><br />
-          
-          <ckeditor tagName="input" name="answer1" [editor]="Editor" data="Enter wrong answer 1..." [(ngModel)]="question.answer1"></ckeditor><br />
+          <span class="display" [ngClass]="{'invalid': wrongAnswerVar.valid === false }">
+            At least one wrong answer is required.
+          </span>
+          <ckeditor required #wrongAnswerVar="ngModel" tagName="input" name="answer1" [editor]="Editor" data="Enter wrong answer 1 (required)..." [(ngModel)]="question.answer1"></ckeditor><br />
           
           <ckeditor tagName="input" name="answer2" [editor]="Editor" data="Enter wrong answer 2..." [(ngModel)]="question.answer2"></ckeditor><br />
           
@@ -26,7 +43,11 @@
         <button *ngIf="question.questionId" (click)="api.putQuestion(question)" mat-flat-button color="primary">SAVE</button>
         <span>&nbsp;&nbsp;</span> 
         <button *ngIf="question.questionId" (click)="question = {}" mat-flat-button color="primary">NEW</button>
-        <button *ngIf="!question.questionId" (click)="post(question)" mat-flat-button color="primary">ADD</button>
+        <span>&nbsp;&nbsp;</span>
+        <button *ngIf="!question.questionId" [disabled]="!questionVar.valid || !correctAnswerVar.valid || !wrongAnswerVar.valid" (click)="post(question)" mat-flat-button color="primary">ADD</button>
+        <span>&nbsp;&nbsp;</span>
+        <button *ngIf="question.questionId" (click)="api.deleteQuestion(question)" mat-flat-button color="primary">DELETE</button>
+        
       </mat-card-actions>
     </mat-card>
   </div>

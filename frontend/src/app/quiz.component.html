@@ -15,10 +15,13 @@
       <span>&nbsp;&nbsp;</span> 
       <button *ngIf="quiz.quizId" (click)="api.putQuiz(quiz)" mat-flat-button color="primary">EDIT</button>
       <span>&nbsp;&nbsp;</span> 
+      <button *ngIf="quiz.quizId" (click)="api.deleteQuiz(quiz)" mat-flat-button color="primary">DELETE</button>
+      <span>&nbsp;&nbsp;</span> 
       <button *ngIf="quiz.quizId" (click)="quiz = {}" mat-flat-button color="primary">NEW</button>
       <span>&nbsp;&nbsp;</span>
       <button *ngIf="quiz.quizId" [routerLink]="['/question', quiz.quizId]" mat-flat-button color="primary">EDIT QUESTIONS</button>
       <button *ngIf="!quiz.quizId" (click)="api.postQuiz(quiz)" mat-flat-button color="primary">ADD</button>
     </mat-card-actions>
   </mat-card>
+  <quizzes></quizzes>
 </div>

@@ -58,7 +58,20 @@ export class ApiService {
     selectQuestion(question){
         this.selectedQuestion.next(question)
     }
+
+    deleteQuestion(question){
+        this.http.delete(`${baseUrl}/api/questions/${question.questionId}`, question).subscribe(res => {
+            console.log(res)
+        })
+    }
+
     selectQuiz(quiz){
         this.selectedQuiz.next(quiz)
+    }
+    
+    deleteQuiz(quiz){
+        this.http.delete(`${baseUrl}/api/quizzes/${quiz.quizId}`, quiz).subscribe(res => {
+            console.log(res)
+        })
     }
 }
