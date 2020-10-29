@@ -10,7 +10,7 @@
       </mat-card-title>
       <mat-card-content>
         <form name="myForm">
-          <span class="display" [ngClass]="{'invalid': questionVar.valid === false}">
+          <span class="nodisplay" [ngClass]="{'invalid': questionVar.valid === false}">
             Question text is required.
           </span>
           <ckeditor 
@@ -23,12 +23,12 @@
             [(ngModel)]="question.questionText">
           </ckeditor><br />
 
-          <span class="display" [ngClass]="{'invalid': correctAnswerVar.valid === false }">
+          <span class="nodisplay" [ngClass]="{'invalid': correctAnswerVar.valid === false }">
             Correct answer is required.
           </span>
           <ckeditor required #correctAnswerVar="ngModel" tagName="input" name="correctAnswer" [editor]="Editor" data="Enter a correct answer (required)..." [(ngModel)]="question.correctAnswer"></ckeditor><br />
           
-          <span class="display" [ngClass]="{'invalid': wrongAnswerVar.valid === false }">
+          <span class="nodisplay" [ngClass]="{'invalid': wrongAnswerVar.valid === false }">
             At least one wrong answer is required.
           </span>
           <ckeditor required #wrongAnswerVar="ngModel" tagName="input" name="answer1" [editor]="Editor" data="Enter wrong answer 1 (required)..." [(ngModel)]="question.answer1"></ckeditor><br />

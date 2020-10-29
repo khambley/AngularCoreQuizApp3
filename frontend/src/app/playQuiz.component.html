@@ -1,25 +1,39 @@
-<mat-card>
+<div class="container">
+  <mat-card>
     <mat-card-header>
-      <mat-card-title></mat-card-title>
+      <mat-card-title>Title: {{quiz.title}}</mat-card-title>
     </mat-card-header>
       <mat-card-content>
         <mat-list *ngFor="let question of pagedList">
-          <span>Question {{pageIndex + 1}}:</span><mat-list-item class="clickLink" [innerHTML]="question.questionText"></mat-list-item>
-          <mat-radio-group [(ngModel)]="question.selectedAnswer">    
-            <mat-radio-button appearance="outline" class="fullWidth" *ngFor="let answer of question.answers" [value]="answer">
+          <span class="float-left">Question {{pageIndex + 1}}:</span><br />
+          <mat-list-item [innerHTML]="question.questionText"></mat-list-item>
+          <mat-radio-group 
+          required
+          #answerVar="ngModel"
+          [(ngModel)]="question.selectedAnswer">    
+            <mat-radio-button [ngClass]="{'nodisplayAnswer': answer === null }" appearance="outline" class="fullWidth" *ngFor="let answer of question.answers" [value]="answer">
                 <span [innerHTML]="answer"></span>
             </mat-radio-button>
-            </mat-radio-group><br /><br />
-        <button *ngIf="pageIndex == length - 1" mat-button color="primary" (click)="finish()">Submit Quiz</button>
+            </mat-radio-group><br />
+            <span class="nodisplay text-small margin" [ngClass]="{'invalid': answerVar.valid === false }">
+              You must select an answer. 
+            </span>
+            <span>&nbsp;&nbsp;</span>
+        <button *ngIf="pageIndex == length - 1" [disabled]="!answerVar.valid" class="margin" mat-flat-button color="primary" (click)="finish()">Submit Quiz</button>
         <!-- <button *ngIf="pageIndex == length - 1" mat-button color="primary" (click)="post()">Submit Quiz</button> -->
-        </mat-list>
+        </mat-list> 
+        <mat-paginator [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[1]"
+        [hidePageSize]="true"
+        (page)="pageEvent = OnPageChange($event)"
+        class="float-left"
+        >
+        </mat-paginator>
       </mat-card-content>
       <mat-card-actions>
+        
       </mat-card-actions>
     </mat-card>
-    <mat-paginator [length]="length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[1]"
-    [hidePageSize]="true"
-    (page)="pageEvent = OnPageChange($event)">
-    </mat-paginator>
+    
+</div>

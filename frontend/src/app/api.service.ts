@@ -20,6 +20,10 @@ export class ApiService {
     getQuestions(quizId){
         return this.http.get(`${baseUrl}/api/questions/${quizId}`)
     }
+
+    getQuiz(quizId){
+        return this.http.get(`${baseUrl}/api/quizzes/quiz/${quizId}`)
+    }
     
     getQuizzes(){
         return this.http.get(`${baseUrl}/api/quizzes`)  

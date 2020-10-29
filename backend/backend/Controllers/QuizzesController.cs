@@ -39,7 +39,7 @@ namespace backend.Controllers
         }
 
         // GET: api/Quizzes/5
-        [HttpGet("{id}")]
+        [HttpGet("quiz/{id}")]
         public async Task<ActionResult<Quiz>> GetQuiz(int id)
         {
             var quiz = await _context.Quiz.FindAsync(id);

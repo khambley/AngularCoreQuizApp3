@@ -16,6 +16,7 @@ export class PlayQuizComponent {
 
     quizId
     questions
+    quiz = {}
 
     pagedList = []
     length = 0
@@ -44,6 +45,11 @@ export class PlayQuizComponent {
         });
         this.pagedList = this.questions.slice(0, this.pageSize); 
         this.length = this.questions.length;
+
+    })
+    this.api.getQuiz(this.quizId).subscribe(res => {
+      this.quiz = res
+      console.log(res)
     })
   }
 
