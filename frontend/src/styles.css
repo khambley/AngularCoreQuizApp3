@@ -41,6 +41,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-card-content {
   margin-bottom: 40px !important;
 }
+.mat-card-header-text {
+  margin: 0px 0px !important;
+}
 .mat-radio-button {
   font-family: 'Consolas', sans-serif;
   font-size: 16px;

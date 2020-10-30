@@ -22,14 +22,13 @@ export class PlayQuizComponent {
     length = 0
     pageSize = 1
     pageIndex = 0
+    
     quizAttempt = {
       quizId: 0,
       attemptDate: new Date().toDateString(),
       correctAnswers: 0,
       totalQuestions: 0
     }
-
-    
  
   ngOnInit(){
     this.quizId = this.route.snapshot.paramMap.get('quizId')

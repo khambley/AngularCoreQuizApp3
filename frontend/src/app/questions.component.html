@@ -3,11 +3,19 @@
     <mat-card-title>Questions List</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-list *ngFor="let question of questions; let i = index">
-      <span class="font-weight-bold">Question {{questionNumber + i}}:</span>
+    <mat-list *ngFor="let question of pagedList; let i = index">
+      <span class="font-weight-bold">Question {{questionIndex + i}}:</span>
       <mat-list-item [innerHTML]="question.questionText" class="clickLink" (click)="api.selectQuestion(question)"></mat-list-item>
     </mat-list>
   </mat-card-content>
   <mat-card-actions>
   </mat-card-actions>
 </mat-card>
+<mat-paginator [length]="length"
+[pageSize]="pageSize"
+[pageSizeOptions]="[1]"
+[hidePageSize]="true"
+(page)="pageEvent = OnPageChange($event)"
+class="float-left"
+>
+</mat-paginator>
