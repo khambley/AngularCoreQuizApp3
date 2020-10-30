@@ -15,6 +15,7 @@
                 <span [innerHTML]="answer"></span>
             </mat-radio-button>
             </mat-radio-group><br />
+            <div class="float-right text-small" [innerHTML]="question.referenceText"></div>
             <span class="nodisplay text-small margin" [ngClass]="{'invalid': answerVar.valid === false }">
               You must select an answer. 
             </span>

@@ -13,9 +13,9 @@ namespace backend.Models
 		public string Answer1 { get; set; }
 		public string Answer2 { get; set; }
 		public string Answer3 { get; set; }
+		public string ReferenceText { get; set; } //i.e Chapter 5, pg. 3
 
-        public int QuizId { get; set; }
-        //public Quiz Quiz { get; set; }
+		public int QuizId { get; set; }
 
 
 
